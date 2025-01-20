@@ -55,6 +55,8 @@
                     <p>*</br>**</br>***</br>****</br>*****</p>
                 <% break; 
                    case "exo3": %>
+                <% for ( int i=cpt; i > 0; i--){ for( int j=i; j>0 ; j--){ %>*<% } %><br>
+                        <% } %>
                     <h2>Exercice 3 : Triangle rectangle inversé</h2>
                     <p>Ecrire le code afin de produire un triangle rectangle aligné
                         sur la gauche</p>
