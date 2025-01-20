@@ -30,9 +30,14 @@
             String valeur = request.getParameter("valeur");
             String exercice = request.getParameter("exercice");
             if (valeur != null && !valeur.isEmpty()){
+                int cpt = Integer.parseInt(valeur);
         %>
             <% switch(exercice){
                    case "exo1": %>
+                    <% for (int i = 0 ; i < cpt ; i++){ %>
+                        <% for (int j = 0 ; j < cpt ; j++){ %>*<% } %>
+                        <br>
+                    <% } %>
                     <h2>Exercice 1 : Le carré d'étoiles</h2>
                     <p>Ecrire le code afin de produire un carré d'étoile</p>
                     <p>Exemple si l'utilisateur saisie le valeur 5</p>
