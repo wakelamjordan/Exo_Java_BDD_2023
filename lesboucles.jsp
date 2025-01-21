@@ -82,6 +82,15 @@
                     </p>
                 <% break; 
                    case "exo5": %>
+                   <% for(int i=0;i < cpt; i++){
+                    for(int f=0;f < i; f++){
+                        %>.<%
+                    }
+                    for(int g=cpt-i;g > 0; g--){
+                        %>*<%
+                    }
+                    %><br><%
+                   } %>
                     <h2>Exercice 5 : Triangle isocele</h2>
                     <p>Ecrire le code afin de produire un triangle rectangle aligné
                         sur la droite</p>
