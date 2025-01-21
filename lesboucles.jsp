@@ -64,6 +64,16 @@
                     <p>*****</br>****</br>***</br>**</br>*</p>
                 <% break; 
                    case "exo4": %>
+                   <% for(int i=0;i < cpt; i++){
+                    for(int j=cpt;j > i; j--){ %>
+                        &nbsp;
+                         
+                    <% } %>
+                    <% for(int k=i+1;k>0;k--){
+                        %>*<%
+                    } %>
+                     <br> <%
+                   } %>
                     <h2>Exercice 4 : Triangle rectangle 2</h2>
                     <p>Ecrire le code afin de produire un triangle rectangle aligné
                         sur la droite</p>
