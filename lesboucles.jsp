@@ -83,10 +83,10 @@
                 <% break; 
                    case "exo5": %>
                    <% for(int i=0;i < cpt; i++){
-                    for(int f=0;f < i; f++){
-                        %>.<%
+                    for(int f=cpt-i;f > 0; f--){
+                        %>&nbsp;<%
                     }
-                    for(int g=cpt-i;g > 0; g--){
+                    for(int g=i+1;g > 0; g--){
                         %>*<%
                     }
                     %><br><%
