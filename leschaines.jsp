@@ -31,10 +31,75 @@
        int position = chaine.indexOf(recherche); %>
     <p>Votre premier "e" est en : <%= position %></p>
 
+    <% 
+        int exo1 = 0;
+        for(int i = 0; i < chaine.length(); i++){
+            char c = chaine.charAt(i);
+            if(c == 'e'){
+                exo1 += 1;
+            }
+        } 
+    %>
+
+    <% 
+        String exo2 = "";
+        for(int i = 0; i < chaine.length(); i++){
+            char c = chaine.charAt(i);
+
+            exo2 += c;
+
+            exo2 +="<br>";
+        }
+    %>
+
+    <% 
+        String exo3 = "";
+        for(int i = 0; i < chaine.length(); i++){
+            char c = chaine.charAt(i);
+            if(c == ' '){
+                exo3 += "<br>";
+            }
+
+            exo3 += c;
+        }
+    %>
+
+    <%
+        String exo4 = "";
+        for(int i = 0; i < chaine.length(); i += 2){
+            char c = chaine.charAt(i);
+            exo4 += c;
+        }
+    %>
+
+    <%
+        String exo5 = "";
+        for(int i = chaine.length(); i > 0; i--){
+            char c = chaine.charAt(i-1);
+            exo5 += c;
+        }
+    %>
+
+    <%
+        int voyellesNbre = 0;
+        String voyelles = "aeiouyAEIOUY";
+        for(int i = 0; i < chaine.length(); i++){
+            char c = chaine.charAt(i);
+            for(int j = 0; j < voyelles.length(); j++){
+                char cv = voyelles.charAt(j);
+                if(c == cv){
+                    voyellesNbre +=1;
+                }
+            }
+        }
+    %>
+
     
 <h2>Exercice 1 : Combien de 'e' dans notre chaine de charactère ?</h2>
 <p>Ecrire un programme pour compter le nombre de lettre e dans votre chaine de charactères</p>
-
+<p>
+    Il ya <%=exo1 %> fois la lettre 'e'.
+</p>
 <h2>Exercice 2 : Affichage verticale</h2>
 <p>Ecrire le programme pour afficher le texte en vertical</br>
 Exemple : Bonjour</br>
@@ -45,6 +110,9 @@ j</br>
 o</br>
 u</br>
 r</p>
+<p>
+    <%=exo2 %>
+</p>
 
 <h2>Exercice 3 : Retour à la ligne</h2>
 <p>La présence d'un espace provoque un retour à la ligne </br>
@@ -53,18 +121,31 @@ L'hiver</br>
 sera</br>
 pluvieux</p>
 
+<p>
+    <%=exo3 %>
+</p>
+
 <h2>Exercice 4 : Afficher une lettre sur deux</h2>
 <p>Ecrire le programme pour afficher seulement une lettre sur deux de votre texte </br>
 Exemple : L'hiver sera pluvieux</br>
 Lhvrsr lvex</p>
+<%=exo4 %>
 
 <h2>Exercice 5 : La phrase en verlant</h2>
 <p>Ecrire le programme afin d'afficher le texte en verlant </br>
 Exemple : L'hiver sera pluvieux</br>
 xueivulp ares revih'l</p>
-
+<p>
+    <%=exo5 %>
+</p>
 <h2>Exercice 6 : Consonnes et voyelles</h2>
 <p>Ecrire le programme afin de compter les consonnes et les voyelles dans votre texte</p>
+
+<p>
+    Nombre de voyelles = <%= voyellesNbre %>.
+    <br>
+    Nombre de consonnes = <%= chaine.length() - voyellesNbre %>.
+</p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>
