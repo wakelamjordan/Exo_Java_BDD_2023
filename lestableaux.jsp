@@ -75,6 +75,10 @@
 
             if (abs < (exo7 * exo7)) {
                 exo7 = Integer.parseInt(tableauDeChiffres[i]);
+            } else if (abs == (exo7 * exo7)) {
+                if (exo7 < 0) {
+                    exo7 = Integer.parseInt(tableauDeChiffres[i]);
+                }
             }
         }
     %>
@@ -119,6 +123,9 @@ Ecrire un programme afin de faire la somme de toutes les valeurs saisie par l'ut
 <h2>Exercice 7 : La valeur le plus proche de 0 (2° version)</h2>
 <p>Trouvez la valeur la plus proche de 0 (chiffres positifs ou négatifs)</p>
 <p>En cas d'égalité entre un chiffre positif et négatif, affichez le chiffre positif</p>
+<p>
+    <%= exo7 %>
+</p>
 
 <% } %>
 <p><a href="index.html">Retour au sommaire</a></p>

@@ -10,8 +10,8 @@
     <h1>Exemple de connexion à MariaDB avec JSP</h1>
     <% 
     String url = "jdbc:mariadb://localhost:3306/films";
-    String user = "cnam";
-    String password = "cnam";
+    String user = "root";
+    String password = "4321";
 
         // Charger le pilote JDBC (pilote disponible dans WEB-INF/lib)
         Class.forName("org.mariadb.jdbc.Driver");

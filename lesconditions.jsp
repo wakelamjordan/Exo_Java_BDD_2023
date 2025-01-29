@@ -51,7 +51,7 @@
         <% int intExo1InputC = Integer.parseInt(exo1InputC); %>
         
         <%-- Condition if pour vérifier si C est compris entre A et B --%>
-        <% if (intExo1InputC > intExo1InputA && intExo1InputC < intExo1InputB) { %>
+        <% if ((intExo1InputC > intExo1InputA && intExo1InputC < intExo1InputB)||(intExo1InputC < intExo1InputA && intExo1InputC > intExo1InputB)) { %>
             <p>Oui C est compris entre A et B</p>
         <% } else { %>
             <p>Non C n'est pas compris entre A et B</p>
