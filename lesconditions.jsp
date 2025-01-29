@@ -28,9 +28,36 @@
         <% } else { %>
             <p>Valeur 1 est égale à Valeur 2.</p>
         <% } %>
-   
+        <% } %>
     
 <h2>Exercice 1 : Comparaison 1</h2>
+<form action="#" method="post">
+    <p>Saisir la valeur A : <input type="text" id="exo1InputA" name="exo1InputA">
+    <p>Saisir la valeur B : <input type="text" id="exo1InputB" name="exo1InputB">
+    <p>Saisir la valeur C : <input type="text" id="exo1InputC" name="exo1InputC">
+    <p><input type="submit" value="Afficher">
+</form>
+<p>
+    <%-- Récupération des valeurs --%>
+    <% String exo1InputA = request.getParameter("exo1InputA"); %>
+    <% String exo1InputB = request.getParameter("exo1InputB"); %>
+    <% String exo1InputC = request.getParameter("exo1InputC"); %>
+
+    <%-- Vérification de la condition entre les trois valeurs --%>
+    <% if (exo1InputA != null && exo1InputB != null && exo1InputC != null) { %>
+        <%-- Conversion des valeurs en entiers pour la comparaison --%>
+        <% int intExo1InputA = Integer.parseInt(exo1InputA); %>
+        <% int intExo1InputB = Integer.parseInt(exo1InputB); %>
+        <% int intExo1InputC = Integer.parseInt(exo1InputC); %>
+        
+        <%-- Condition if pour vérifier si C est compris entre A et B --%>
+        <% if (intExo1InputC > intExo1InputA && intExo1InputC < intExo1InputB) { %>
+            <p>Oui C est compris entre A et B</p>
+        <% } else { %>
+            <p>Non C n'est pas compris entre A et B</p>
+        <% } %>
+    <% } %>
+</p>
 <p>Ecrire un programme qui demande à l'utilisateur de saisir 3 valeurs (des chiffres),</br>
 A, B et C et dites nous si la valeur de C est comprise entre A et B.</br>
 Exemple :</br>
@@ -40,9 +67,30 @@ C = 15</br>
 Oui C est compris entre A et B</p>
 
 <h2>Exercice 2 : Pair ou Impair ?</h2>
+<form action="#" method="post">
+    <p>Saisir la valeur : <input type="text" id="exo2Input" name="exo2Input">
+    <p><input type="submit" value="Afficher">
+</form>
+<p>
+    <%-- Récupération de la valeur saisie par l'utilisateur --%>
+    <% String exo2Input = request.getParameter("exo2Input"); %>
+
+    <%-- Vérification de l'existence de la valeur --%>
+    <% if (exo2Input != null && !exo2Input.isEmpty()) { %>
+        <%-- Conversion de la valeur en entier pour la vérification --%>
+        <% int intExo2Input = Integer.parseInt(exo2Input); %>
+        
+        <%-- Condition if pour vérifier si le nombre est pair ou impair --%>
+        <% if (intExo2Input % 2 == 0) { %>
+            <p>Le nombre est pair.</p>
+        <% } else { %>
+            <p>Le nombre est impair.</p>
+        <% } %>
+    <% } %>
+</p>
 <p>Écrivez un programme pour vérifier si un nombre est pair ou impair en utilisant une structure if</p>
 
-<% } %>
+
 <p><a href="index.html">Retour au sommaire</a></p>
 </body>
 </html>
