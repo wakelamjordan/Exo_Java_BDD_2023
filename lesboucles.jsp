@@ -9,135 +9,104 @@
         <h1>Exercices sur les boucles</h1>
         <form action="#" method="post">
             <label for="inputValeur">Saisir le nombre d'étoiles : </label>
-            <input type="text" id="inputValeur" name="valeur" required>
-            <div>
-                <label for="exercice">Exercice</label>
-                <select name="exercice" id="exercice" required>
-                    <option value="">Selectionnez l'exercice</option>
-                    <option value="exo1">Exercice 1</option>
-                    <option value="exo2">Exercice 2</option>
-                    <option value="exo3">Exercice 3</option>
-                    <option value="exo4">Exercice 4</option>
-                    <option value="exo5">Exercice 5</option>
-                    <option value="exo6">Exercice 6</option>
-                    <option value="exo7">Exercice 7</option>
-                </select>
-            </div>
+            <input type="text" id="inputValeur" name="valeur">
             <input type="submit" value="Afficher">
         </form>
 
-        <% 
-            String valeur = request.getParameter("valeur");
-            String exercice = request.getParameter("exercice");
-            if (valeur != null && !valeur.isEmpty()){
-                int cpt = Integer.parseInt(valeur);
-        %>
-            <% switch(exercice){
-                   case "exo1": %>
-                    <% for (int i = 0 ; i < cpt ; i++){ %>
-                        <% for (int j = 0 ; j < cpt ; j++){ %>*<% } %>
-                        <br>
-                    <% } %>
-                    <h2>Exercice 1 : Le carré d'étoiles</h2>
-                    <p>Ecrire le code afin de produire un carré d'étoile</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>*****</br>*****</br>*****</br>*****</br>*****</p>
-                <% break; 
-                   case "exo2": %>
-                   <% for ( int i = 0; i < cpt; i++){ 
-                    for( int j = 0; j< i+1; j++){ %>*<% }
-                    %><br><%
-                    } %>
-                    <h2>Exercice 2 : Triangle rectangle gauche</h2>
-                    <p>Ecrire le code afin de produire un triangle rectangle aligné
-                        sur la gauche</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>*</br>**</br>***</br>****</br>*****</p>
-                <% break; 
-                   case "exo3": %>
-                <% for ( int i=cpt; i > 0; i--){ for( int j=i; j>0 ; j--){ %>*<% } %><br>
-                        <% } %>
-                    <h2>Exercice 3 : Triangle rectangle inversé</h2>
-                    <p>Ecrire le code afin de produire un triangle rectangle aligné
-                        sur la gauche</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>*****</br>****</br>***</br>**</br>*</p>
-                <% break; 
-                   case "exo4": %>
-                   <% for(int i=0;i < cpt; i++){
-                    for(int j=cpt;j > i; j--){ %>
-                        &nbsp;
-                         
-                    <% } %>
-                    <% for(int k=i+1;k>0;k--){
-                        %>*<%
-                    } %>
-                     <br> <%
-                   } %>
-                    <h2>Exercice 4 : Triangle rectangle 2</h2>
-                    <p>Ecrire le code afin de produire un triangle rectangle aligné
-                        sur la droite</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****
-                    </p>
-                <% break; 
-                   case "exo5": %>
-                   <% for(int i=0;i < cpt; i++){
-                    for(int f=cpt-i;f > 0; f--){
-                        %>&nbsp;<%
-                    }
-                    for(int g=i+1;g > 0; g--){
-                        %>*<%
-                    }
-                    %><br><%
-                   } %>
-                    <h2>Exercice 5 : Triangle isocele</h2>
-                    <p>Ecrire le code afin de produire un triangle rectangle aligné
-                        sur la droite</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****
-                    </p>
-                <% break; 
-                   case "exo6": %>
-                    <h2>Exercice 6 : Le demi losange</h2>
-                    <p>Ecrire le code afin de produire un losange</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****
-                    </p>
-                    <p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
-                    </p>
-                <% break; 
-                   case "exo7": %>
-                    <h2>Exercice 7 : La table de multiplication</h2>
-                    <p>Ecrire le code afin de créser une table de multiplication</p>
-                    <p>Exemple si l'utilisateur saisie le valeur 5</p>
-                    <p>5 x 1 = 5</p>
-                    <p>5 x 2 = 10</p>
-                    <p>5 x 3 = 15</p>
-                    <p>5 x 4 = 20</p>
-                    <p>5 x 5 = 25</p>
-                <% break; 
-                   default:
-                break;}%>
-        <% 
-            }
-        %>
+        <%-- Récupération de la valeur saisie par l'utilisateur --%>
+            <% String valeur=request.getParameter("valeur"); %>
 
+                <%-- Vérification de l'existence de la valeur --%>
+                    <% if (valeur !=null && !valeur.isEmpty()) { %>
 
-        
-                                                
+                        <%-- Boucle for pour afficher une ligne d'étoiles --%>
+                            <%int cpt=Integer.parseInt(valeur); %>
+                            <%  
+                                String exo1="" ; 
+                                for (int i=0; i<cpt; i++){
+                                    for (int j=0; j<cpt; j++){
+                                        exo1+="*";
+                                    }
+                                    exo1+="<br>";
+                                }
+                                
+                            %>
+                            <%  
+                                String exo2="" ; 
+                                for (int i=0; i<cpt; i++){
+                                    for (int j=0; j<=i; j++){
+                                        exo2+="*";
+                                    }
+                                    exo2+="<br>";
+                                }
+                                
+                            %>
+                            <%  
+                                String exo3="" ; 
+                                for (int i=0; i<cpt; i++){
+                                    for (int j=i; j<cpt; j++){
+                                        exo3+="*";
+                                    }
+                                    exo3+="<br>";
+                                }
+                                
+                            %>
 
+                                <h2>Exercice 1 : Le carré d'étoiles</h2>
+                                <p>Ecrire le code afin de produire un carré d'étoile</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>*****</br>*****</br>*****</br>*****</br>*****</p>
+                                <p>
+                                    <%= exo1 %>
+                                </p>
 
+                                <h2>Exercice 2 : Triangle rectangle gauche</h2>
+                                <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>*</br>**</br>***</br>****</br>*****</p>
+                                <p>
+                                    <%= exo2 %>
+                                </p>
 
+                                <h2>Exercice 3 : Triangle rectangle inversé</h2>
+                                <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>*****</br>****</br>***</br>**</br>*</p>
+                                <p>
+                                    <%= exo3 %>
+                                </p>
 
+                                <h2>Exercice 4 : Triangle rectangle 2</h2>
+                                <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****
+                                </p>
 
+                                <h2>Exercice 5 : Triangle isocele</h2>
+                                <p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;***</br>&nbsp;****</br>*****
+                                </p>
 
+                                <h2>Exercice 6 : Le demi losange</h2>
+                                <p>Ecrire le code afin de produire un losange</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;***</br>&nbsp;&nbsp;****</br>*****
+                                </p>
+                                <p>*****</br>&nbsp;&nbsp;****</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*
+                                </p>
 
-                
+                                <h2>Exercice 7 : La table de multiplication</h2>
+                                <p>Ecrire le code afin de créser une table de multiplication</p>
+                                <p>Exemple si l'utilisateur saisie le valeur 5</p>
+                                <p>5 x 1 = 5</p>
+                                <p>5 x 2 = 10</p>
+                                <p>5 x 3 = 15</p>
+                                <p>5 x 4 = 20</p>
+                                <p>5 x 5 = 25</p>
 
-
-
-        <p><a href="index.html">Retour au sommaire</a></p>
+                                <% } %>
+                                    <p><a href="index.html">Retour au sommaire</a></p>
     </body>
 
     </html>
