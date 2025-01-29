@@ -90,7 +90,50 @@ Oui C est compris entre A et B</p>
 </p>
 <p>Écrivez un programme pour vérifier si un nombre est pair ou impair en utilisant une structure if</p>
 
+<h2>Exercice 3 : Jeu du chiffre aleatoire</h2>
+<p>Écrivez un programme afin que le joueur devine le chiffre aléatoire généré par le système.</p>
+
+<% long randomInt=Math.round(Math.random()*101); %>
+<div>
+    <input type="number" id="inputRandomGame">
+    <button type="button" id="buttonRandomGame" onclick="randomGame(this,<%= randomInt %>)" data-essai=0>Éssayer</button>
+</div>
+<div id="messageRandomGame"></div>
+
+
+
+
+
 
 <p><a href="index.html">Retour au sommaire</a></p>
+<script>
+    function randomGame(btn,randomInt){
+
+        let essayNbre = parseInt(btn.getAttribute("data-essai"))+1;
+        btn.setAttribute("data-essai", essayNbre);
+        let essay = parseInt(document.getElementById("inputRandomGame").value);
+        let solution = parseInt(randomInt);
+        let display = document.getElementById("messageRandomGame");
+
+        display.textContent = "";
+
+        let test = solution - essay;
+
+        // console.log(essay, solution, test);
+        let message = "";
+
+        if(test < 0){
+            message = essay + " est trop grand";
+        }
+        if(test > 0){
+            message = essay + " est trop petit";
+        }
+        if(test == 0){
+            message ="Bravo vous avez trouvé "+ solution +" en "+ essayNbre +" éssais!";
+        }
+
+        display.textContent = message;
+    }
+</script>
 </body>
 </html>
